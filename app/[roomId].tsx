@@ -1,26 +1,27 @@
 import { Message } from "@/types";
 import React, { useState } from "react";
 import {
-    FlatList,
-    KeyboardAvoidingView,
-    Platform,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  FlatList,
+  KeyboardAvoidingView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 
 const ChatRoomList = () => {
   const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState<Message[]>([{
-    id: '1',
-    senderId: 'user1',
-    receiverId: 'user2',
-    text: 'Hello! This is a sample message.',
-    timestamp: Date.now(),
-  }]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      id: "1",
+      senderId: "user1",
+      receiverId: "user2",
+      text: "Hello! This is a sample message.",
+      timestamp: Date.now(),
+    },
+  ]);
 
   const sendMessage = () => {
     if (message.trim().length === 0) return;
@@ -63,7 +64,7 @@ const ChatRoomList = () => {
         />
 
         <KeyboardAvoidingView
-          behavior={Platform.OS === "ios" ? "padding" : "height"}
+          behavior={"padding"}
           keyboardVerticalOffset={90} // Adjust based on your header height
         >
           <View style={styles.inputContainer}>
@@ -101,7 +102,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#E5E5EA",
   },
   myText: { color: "#fff" },
-  theirText: { color: "#000" },
+  theirText: { color: "#4e4e4e" },
   inputContainer: {
     flexDirection: "row",
     padding: 10,
@@ -114,11 +115,11 @@ const styles = StyleSheet.create({
     flex: 1,
     height: 40,
     backgroundColor: "#f0f0f0",
-    borderRadius: 20,
+    borderRadius: 6,
     paddingHorizontal: 15,
-    marginRight: 10,
+    marginRight: 4,
   },
-  sendButton: { backgroundColor: "#007AFF", padding: 10, borderRadius: 20 },
+  sendButton: { backgroundColor: "#007AFF", padding: 10, borderRadius: 6 },
   sendButtonText: { color: "#fff", fontWeight: "bold" },
 });
 
